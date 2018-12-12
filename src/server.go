@@ -100,6 +100,7 @@ func main() {
 			item.Name = ""
 			item.Url = fields[0]
 		} else {
+			log.Fatalln("行内容为空，忽略。")
 			continue
 		}
 
@@ -118,6 +119,7 @@ func main() {
 
 	csvWriter := csv.NewWriter(csvFile)
 	defer csvWriter.Flush()
+	fmt.Println("开始写入 CSV 文件")
 	for _, value := range rows {
 		d := []string{
 			value.CategoryName,
@@ -128,6 +130,8 @@ func main() {
 		if err := csvWriter.Write(d); err != nil {
 			log.Fatalln("Error writing record to csv:", err)
 		}
+		fmt.Print(".")
 	}
-	fmt.Println("Done.")
+	fmt.Println("")
+	fmt.Println("数据处理完毕")
 }
