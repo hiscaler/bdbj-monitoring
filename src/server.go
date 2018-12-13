@@ -72,7 +72,7 @@ func get(item BaiDuBaiJiaItem, ch chan BaiDuBaiJiaItem, wg *sync.WaitGroup, clie
 				if len(matchers) >= 2 {
 					item.ModifyTime = matchers[1]
 				}
-		}
+			}
 		}
 	}
 
