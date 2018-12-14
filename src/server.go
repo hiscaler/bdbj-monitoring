@@ -86,7 +86,7 @@ func main() {
 	}
 	ch := make(chan BaiDuBaiJiaItem, 10)
 	defer close(ch)
-	file, err := os.Open("./src/data/urls.txt")
+	file, err := os.Open("./data/urls.txt")
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -140,7 +140,7 @@ func main() {
 	wg.Wait()
 
 	// Save to CSV file
-	csvFile, err := os.Create("./src/data/urls-done.csv")
+	csvFile, err := os.Create("./data/urls-done.csv")
 	if err != nil {
 		panic(err)
 	}
